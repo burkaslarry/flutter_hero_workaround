@@ -1,8 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'hero_gorouter.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MusicAppDemo());
 }
 
 class MyApp extends StatelessWidget {
