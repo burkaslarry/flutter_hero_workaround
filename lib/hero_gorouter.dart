@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:english_words/english_words.dart';
 import 'albumscreen/album_screen.dart';
 import 'libraryscreen/library_screen.dart';
+import 'recentlyplayedscreen/recently_played_screen.dart';
 
 void main() {
   runApp(MusicAppDemo());
@@ -379,16 +380,6 @@ class MusicDatabaseScope extends InheritedWidget {
   }
 }
 
-class Album {
-  final String id;
-  final String title;
-  final String artist;
-  final Color color;
-  final List<Song> songs;
-
-  Album(this.id, this.title, this.artist, this.color, this.songs);
-}
-
 class Song {
   final String id;
   final String albumId;
@@ -398,35 +389,6 @@ class Song {
   Song(this.id, this.albumId, this.title, this.duration);
 
   String get fullId => '$albumId-$id';
-}
-
-class AlbumTile extends StatelessWidget {
-  final Album album;
-  final VoidCallback? onTap;
-
-  const AlbumTile({Key? key, required this.album, this.onTap})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      //Startpoint Hero Object
-      leading: Hero(
-        tag: album
-            .id, // <---object has unique memory address under same navigation stack
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: Container(
-            color: album.color,
-          ),
-        ),
-      ),
-      title: Text(album.title),
-      subtitle: Text(album.artist),
-      onTap: onTap,
-    );
-  }
 }
 
 class SongTile extends StatelessWidget {

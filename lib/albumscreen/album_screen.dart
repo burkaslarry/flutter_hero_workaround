@@ -85,3 +85,32 @@ class AlbumScreen extends StatelessWidget {
     );
   }
 }
+
+class AlbumTile extends StatelessWidget {
+  final Album album;
+  final VoidCallback? onTap;
+
+  const AlbumTile({Key? key, required this.album, this.onTap})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      //Startpoint Hero Object
+      leading: Hero(
+        tag: album
+            .id, // <---object has unique memory address under same navigation stack
+        child: SizedBox(
+          width: 50,
+          height: 50,
+          child: Container(
+            color: album.color,
+          ),
+        ),
+      ),
+      title: Text(album.title),
+      subtitle: Text(album.artist),
+      onTap: onTap,
+    );
+  }
+}
