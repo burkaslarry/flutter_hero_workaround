@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../hero_gorouter.dart';
+import '/model/album.dart';
 
 //Detail Page of Album
 class AlbumScreen extends StatelessWidget {
@@ -86,11 +87,11 @@ class AlbumScreen extends StatelessWidget {
   }
 }
 
-class AlbumTile extends StatelessWidget {
+class AlbumTitle extends StatelessWidget {
   final Album album;
   final VoidCallback? onTap;
 
-  const AlbumTile({Key? key, required this.album, this.onTap})
+  const AlbumTitle({Key? key, required this.album, this.onTap})
       : super(key: key);
 
   @override

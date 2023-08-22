@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sample/albumscreen/album_screen.dart';
 import '../hero_gorouter.dart';
 
 class LibraryScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class LibraryScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (context, albumId) {
           final album = database.albums[albumId];
-          return AlbumTile(
+          return AlbumTitle(
             album: album,
             onTap: () {
               GoRouter.of(context).go('/library/album/$albumId');

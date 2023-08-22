@@ -10,6 +10,8 @@ import 'package:english_words/english_words.dart';
 import 'albumscreen/album_screen.dart';
 import 'libraryscreen/library_screen.dart';
 import 'recentlyplayedscreen/recently_played_screen.dart';
+import './model/album.dart';
+import './model/song.dart';
 
 void main() {
   runApp(MusicAppDemo());
@@ -378,17 +380,6 @@ class MusicDatabaseScope extends InheritedWidget {
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
     return oldWidget is MusicDatabaseScope && state != oldWidget.state;
   }
-}
-
-class Song {
-  final String id;
-  final String albumId;
-  final String title;
-  final Duration duration;
-
-  Song(this.id, this.albumId, this.title, this.duration);
-
-  String get fullId => '$albumId-$id';
 }
 
 class SongTile extends StatelessWidget {
